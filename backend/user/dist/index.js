@@ -11,6 +11,10 @@ connectRabbitMQ();
 //@ts-ignore
 export const redisClient = createClient({
     url: process.env.REDIS_URL,
+    socket: {
+        tls: true,
+        rejectUnauthorized: false
+    }
 });
 redisClient
     .connect()
